@@ -4,7 +4,7 @@ import StaticChart from "@/components/dashboard/StaticChart";
 import { useGlobalContext } from "@/hooks/useGlobalContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Data } from "@/lib/data";
+import { Data } from "@/lib/data.js";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useToast } from "@/hooks/use-toast";
