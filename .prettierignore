@@ -1,0 +1,15 @@
+/.vscode
+/node_module
+/.dist
+
+*.env
+.env
+.env.*
+
+# node_modules
+**/.next/**
+**/_next/**
+**/dist/**
+**/__tmp__/**
+# lerna.json
+.github
