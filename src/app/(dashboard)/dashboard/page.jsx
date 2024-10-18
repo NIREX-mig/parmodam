@@ -4,7 +4,7 @@ import StaticChart from "@/components/dashboard/StaticChart";
 import { useGlobalContext } from "@/hooks/useGlobalContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Data } from "@/lib/data.js";
+// import { Data } from "@/lib/data";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useToast } from "@/hooks/use-toast";
@@ -35,24 +35,24 @@ export default function Dashboard() {
         draftBlogs: "0",
     });
 
-    const [chartData, setChartData] = useState({
-        labels: Data.map((data) => data.Month),
-        datasets: [
-            {
-                label: "Published Blogs",
-                data: Data.map((data) => data.publishBlogCount),
-                backgroundColor: [
-                    "#84cc16",
-                    "#22c55e",
-                    "#10b981",
-                    "#4338ca",
-                    "#9333ea"
-                ],
-                borderColor: "black",
-                borderWidth: 1
-            }
-        ]
-    });
+    // const [chartData, setChartData] = useState({
+    //     labels: Data.map((data) => data.Month),
+    //     datasets: [
+    //         {
+    //             label: "Published Blogs",
+    //             data: Data.map((data) => data.publishBlogCount),
+    //             backgroundColor: [
+    //                 "#84cc16",
+    //                 "#22c55e",
+    //                 "#10b981",
+    //                 "#4338ca",
+    //                 "#9333ea"
+    //             ],
+    //             borderColor: "black",
+    //             borderWidth: 1
+    //         }
+    //     ]
+    // });
 
     useEffect(() => {
         const fetchStatics = async () => {
@@ -135,11 +135,11 @@ export default function Dashboard() {
 
             </div>
 
-            <div className="flex-row lg:flex gap-7">
+            {/* <div className="flex-row lg:flex gap-7">
                 <div className="w-full overflow-auto">
                     <StaticChart chartData={chartData} />
                 </div>
-            </div>
+            </div> */}
             <ScrollBar orientation="vertical" />
         </ScrollArea >
     );
