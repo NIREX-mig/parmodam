@@ -31,13 +31,13 @@ export default function EditBlog() {
     const [slug, setSlug] = useState("");
     const [summary, setSummary] = useState("");
     const [category, setCategory] = useState("");
-    const [thumbnail, setThumbnail] = useState();
+    const [thumbnail, setThumbnail] = useState(undefined);
     const [blogContent, setBlogContent] = useState("")
     const [tagData, setTagData] = useState([]);
     const [status, setStatus] = useState("draft");
 
     const [wordCount, setWordCount] = useState(0);
-    const [filePath, setFilePath] = useState()
+    const [filePath, setFilePath] = useState(undefined)
 
     const wordLimit = 20;
 
@@ -61,7 +61,7 @@ export default function EditBlog() {
         const file = e.target.files[0];
 
         if (!file) {
-            setThumbnail(null);
+            setThumbnail(undefined);
             return
         }
 
@@ -170,6 +170,19 @@ export default function EditBlog() {
         fetchData();
     }, [])
 
+    useEffect(() => {
+        if (!thumbnail) {
+            setThumbnail(undefined);
+            return;
+        }
+
+        const objectUrl = URL.createObjectURL(thumbnail);
+        setFilePath(objectUrl);
+
+        // free memory when ever this component is unmounted
+        return () => URL.revokeObjectURL(objectUrl);
+    }, [thumbnail]);
+
     if (isloading) {
         return <Spinner />
     }
@@ -225,7 +238,8 @@ export default function EditBlog() {
                     <Label htmlFor="thumbnail" className="text-lg">Thumbnail</Label>
                     <Input id="Thumbnail" type="file" accept=".jpg, .jpeg, .png" onChange={handleFileChange} />
 
-                    <div className="flex items-center justify-center lg:w-[500px] w-auto mt-5 border-2 border-gray-300 border-dashed rounded-lg overflow-clip dark:bg-dmode">
+                    <p className="mt-5 text-xl"> Image Preview</p>
+                    <div className="flex items-center justify-center lg:w-[500px] w-auto mt-1 border-2 border-gray-300 border-dashed rounded-lg overflow-clip dark:bg-dmode">
                         <AspectRatio ratio={16 / 9} className="dark:bg-dmode">
                             {!filePath && <Label className="flex flex-col items-center justify-center w-full h-64 bg-gray-50 p-2 dark:text-gray-300 dark:bg-dmode" >PNG, JPG, JPEG (MAX. 500x300px)</Label>}
                             {filePath && <Image src={filePath || ""} alt="thumbnail" width={100} height={100} className="w-auto h-auto" />}

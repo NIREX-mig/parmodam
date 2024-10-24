@@ -22,13 +22,13 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
   const [slug, setSlug] = useState("");
   const [summary, setSummary] = useState("");
   const [category, setCategory] = useState("");
-  const [thumbnail, setThumbnail] = useState();
+  const [thumbnail, setThumbnail] = useState(undefined);
   const [blogContent, setBlogContent] = useState("")
   const [tagData, setTagData] = useState([]);
   const [status, setStatus] = useState("draft");
 
   const [wordCount, setWordCount] = useState(0);
-  const [filePath, setFilePath] = useState()
+  const [filePath, setFilePath] = useState(undefined)
 
   const wordLimit = 30;
 
@@ -93,8 +93,17 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
   }
 
   useEffect(() => {
+    if (!thumbnail) {
+      setThumbnail(undefined);
+      return;
+    }
 
-  }, []);
+    const objectUrl = URL.createObjectURL(thumbnail);
+    setFilePath(objectUrl);
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [thumbnail]);
 
   return (
     <section className="p-1">
@@ -146,10 +155,11 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
         <Label htmlFor="thumbnail" className="text-lg">Thumbnail</Label>
         <Input id="Thumbnail" type="file" accept=".jpg, .jpeg, .png" onChange={handleFileChange} />
 
-        <div className="flex items-center justify-center lg:w-[500px] w-auto mt-5 border-2 border-gray-300 border-dashed rounded-lg overflow-clip dark:bg-dmode">
+        <p className="mt-5 text-xl"> Image Preview</p>
+        <div className="flex items-center justify-center lg:w-[500px] w-auto mt-1 border-2 border-gray-300 border-dashed rounded-lg overflow-clip dark:bg-dmode">
           <AspectRatio ratio={16 / 9} className="dark:bg-dmode">
             {!filePath && <Label className="flex flex-col items-center justify-center w-full h-64 bg-gray-50 p-2 dark:text-gray-300 dark:bg-dmode" >PNG, JPG, JPEG (MAX. 500x300px)</Label>}
-            {filePath && <Image src={filePath || ""} alt="thumbnail" width={100} height={100} className="w-auto h-auto" />}
+            {filePath && <Image src={filePath} alt="thumbnail" width={100} height={100} className="w-auto h-auto" />}
           </AspectRatio>
         </div>
       </div>
