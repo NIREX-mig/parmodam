@@ -13,11 +13,13 @@ import { columns } from "./columns";
 export default function Pending() {
 
   const { tableData, setTableData, currentPage, setCurrentPage } = useGlobalContext();
+  const [isLoading, setIsLoading] = useState(false);
 
   const { toast } = useToast();
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       try {
         const res = await axios.post(`/api/dashboard/blog-by-status/draft?limit=20&page=${currentPage}`);
         const { data } = res;
@@ -25,6 +27,7 @@ export default function Pending() {
         if (data.success) {
           setTableData(data.data.blogs);
           setCurrentPage(data.data.currentPage);
+          setIsLoading(false);
         }
 
       } catch (error) {
@@ -33,6 +36,7 @@ export default function Pending() {
           title: "Failed!",
           description: `${error?.response?.data?.message || "Somethig went wrong"} `,
         });
+        setIsLoading(false);
       }
     }
 

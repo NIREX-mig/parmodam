@@ -1,5 +1,6 @@
 "use client";
 
+import Spinner from "@/components/Spinner";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import MdEditor from "react-markdown-editor-lite"
+import "react-markdown-editor-lite/lib/index.css"
 
 export default function EditBlog() {
 
@@ -169,9 +171,7 @@ export default function EditBlog() {
     }, [])
 
     if (isloading) {
-        return <div className="flex justify-center items-start">
-            <p>Loading . . . </p>
-        </div>
+        return <Spinner />
     }
 
     return (
