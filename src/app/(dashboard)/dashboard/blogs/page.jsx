@@ -44,7 +44,10 @@ export default function Blogs() {
   }, [])
 
   if (isLoading) {
-    return <Spinner />
+    return <div className="w-full bg-white rounded-xl mt-2 h-[calc(100vh-100px)] p-4 dark:bg-dmode dark:text-gray-300 flex justify-center items-center">
+      <Spinner />
+    </div>
+
   }
 
   return (

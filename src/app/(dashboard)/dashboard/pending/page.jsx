@@ -9,6 +9,7 @@ import { useGlobalContext } from "@/hooks/useGlobalContext";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { columns } from "./columns";
+import Spinner from "@/components/Spinner";
 
 export default function Pending() {
 
@@ -42,6 +43,13 @@ export default function Pending() {
 
     fetchData();
   }, []);
+
+  if (isLoading) {
+    return <div className="w-full bg-white rounded-xl mt-2 h-[calc(100vh-100px)] p-4 dark:bg-dmode dark:text-gray-300 flex justify-center items-center">
+      <Spinner />
+    </div>
+
+  }
 
 
   return (
