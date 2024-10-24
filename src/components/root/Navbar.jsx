@@ -50,7 +50,7 @@ const Navbar = () => {
           <span className="lg:hidden">
             <ModeToggle />
           </span>
-          <Button type="default" size="sm" onClick={() => setMobileNavIsOpen(!mobileNavIsOpen)} className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:bg-dmode">
+          <Button type="default" size="sm" onClick={() => setMobileNavIsOpen(!mobileNavIsOpen)} className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 bg-white focus:ring-gray-200 dark:text-white dark:bg-dmode">
             <span className="sr-only">Open main menu</span>
             {!mobileNavIsOpen ? <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />

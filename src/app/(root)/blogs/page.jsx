@@ -8,7 +8,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 
 export default function Blogs() {
-  const { setMobileNavIsOpen, nextId, setNextId } = useGlobalContext();
+  const { setMobileNavIsOpen, currentPage, setCurrentPage } = useGlobalContext();
 
   const [query, setQuery] = useState("");
   const [blogs, setBlogs] = useState([]);
@@ -25,14 +25,15 @@ export default function Blogs() {
   };
 
   useEffect(() => {
+    setMobileNavIsOpen(false);
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/api/root?limit=20&lastId=${nextId}`);
+        const res = await axios.get(`/api/root?limit=20&page=${currentPage}`);
         const { data } = res;
 
         if (data.success) {
           setBlogs(data.data.blogs);
-          setNextId(data.data.nextId);
+          setCurrentPage(data.data.currentPage);
         }
       } catch (error) {
         toast({

@@ -12,20 +12,21 @@ import { columns } from "./columns";
 
 export default function Pending() {
 
-  const { nextId, setNextId, tableData, setTableData } = useGlobalContext();
+  const { tableData, setTableData, currentPage, setCurrentPage } = useGlobalContext();
 
   const { toast } = useToast();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.post(`/api/dashboard/blog-by-status/draft?limit=20&lastId=${nextId}`);
+        const res = await axios.post(`/api/dashboard/blog-by-status/draft?limit=20&page=${currentPage}`);
         const { data } = res;
 
         if (data.success) {
           setTableData(data.data.blogs);
-          setNextId(data.data?.nextId);
+          setCurrentPage(data.data.currentPage);
         }
+
       } catch (error) {
         toast({
           variant: "destructive",

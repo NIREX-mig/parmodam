@@ -8,9 +8,10 @@ export async function POST(request, { params }) {
     const searchParams = request.nextUrl.searchParams;
     try {
 
-        const blogstatus = params.blogstatus
-        const limit = parseInt(searchParams.get('limit'));
-        const lastId = parseInt(searchParams.get("lastId"));
+        const blogstatus = params.blogstatus;
+        const page = parseInt(searchParams.get('page')) || 1; // Default to page 1
+        const limit = parseInt(searchParams.get('limit')) || 20; // Default to 10 items per page
+        const skip = (page - 1) * limit; // Calculate skip value
 
         if (!blogstatus) {
             return Response.json(new ApiResponse(
@@ -21,17 +22,12 @@ export async function POST(request, { params }) {
             });
         }
 
-        // crate query 
-        const query = lastId ? {
-            status: blogstatus,
-            _id: { $gt: lastId }
-        } : {
-            status: blogstatus
-        }
 
         const blogs = await blogModel.aggregate([
             {
-                $match: query
+                $match: {
+                    status: blogstatus
+                }
             },
             {
                 $sort: {
@@ -39,20 +35,25 @@ export async function POST(request, { params }) {
                 }
             },
             {
+                $skip: skip
+            },
+            {
                 $limit: limit
             }
         ]);
 
-        // Determine the next cursor
-        const nextId = blogs.length > 0 ? blogs[blogs.length - 1]._id : null;
+        // Get total count of documents (without pagination)
+        const total = await blogModel.find({ status: blogstatus }).countDocuments();
+
 
         if (blogs.length === 0) {
             return Response.json(new ApiResponse(
                 true,
                 "NO blog found",
                 {
-                    limit: "",
-                    nextId: "",
+                    totalPages: Math.ceil(total / limit),
+                    currentPage: page,
+                    totalPosts: total,
                     blogs: []
                 }
             ), {
@@ -64,8 +65,9 @@ export async function POST(request, { params }) {
             true,
             "Success",
             {
-                limit,
-                nextId,
+                totalPages: Math.ceil(total / limit),
+                currentPage: page,
+                totalPosts: total,
                 blogs
             }
         ), {

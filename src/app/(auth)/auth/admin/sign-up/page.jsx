@@ -122,8 +122,8 @@ export default function Signup() {
                                         </FormItem>
                                     )}
                                 />
-                                <Button type="submit" className="w-full disabled:bg-black/85 disabled:cursor-not-allowed" disabled={isSubmiting} >
-                                    {isSubmiting ? <Loader2 className="animate-spin" /> : "Sign Up"}
+                                <Button type="submit" className="w-full disabled:bg-black/45 disabled:cursor-not-allowed " disabled={isSubmiting} >
+                                    {isSubmiting ? <Loader2 className="animate-spin dark:text-white dark:file:text-white" /> : "Sign Up"}
                                 </Button>
                             </form>
                         </Form>

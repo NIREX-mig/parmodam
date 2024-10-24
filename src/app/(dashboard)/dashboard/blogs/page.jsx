@@ -13,18 +13,19 @@ import { columns } from "./columns";
 
 export default function Blogs() {
 
-  const { nextId, setNextId, tableData, setTableData } = useGlobalContext();
+  const { tableData, setTableData, currentPage, setCurrentPage } = useGlobalContext();
 
   const { toast } = useToast();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.post(`/api/dashboard/blog-by-status/publish?limit=20&lastId=${nextId}`);
+        const res = await axios.post(`/api/dashboard/blog-by-status/publish?limit=20&page=${currentPage}`);
         const { data } = res;
+
         if (data.success) {
-          setNextId(data.data.nextId);
-          setTableData(data.data.blogs)
+          setCurrentPage(data.data.currentPage);
+          setTableData(data.data.blogs);
         }
       } catch (error) {
         toast({

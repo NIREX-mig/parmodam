@@ -8,41 +8,41 @@ export async function GET(request) {
 
     try {
 
-        const limit = parseInt(searchParams.get('limit'));
-        const lastId = parseInt(searchParams.get("lastId"));
-
-        // create query
-        const query = lastId ? {
-            status: "publish",
-            _id: { $gt: lastId }
-        } : {
-            status: "publish"
-        }
+        const page = parseInt(searchParams.get('page')) || 1; // Default to page 1
+        const limit = parseInt(searchParams.get('limit')) || 20; // Default to 10 items per page
+        const skip = (page - 1) * limit; // Calculate skip value
 
         const blogs = await blogModel.aggregate([
             {
-                $match: query,
+                $match: {
+                    status: "publish",
+                }
             },
             {
                 $sort: {
-                    _id: 1
+                    createdAt: -1
                 }
+            },
+            {
+                $skip: skip
             },
             {
                 $limit: limit
             }
         ]);
 
-        // Determine the next cursor
-        const nextId = blogs.length > 0 ? blogs[blogs.length - 1]._id : null;
+        // Get total count of documents (without pagination)
+        const total = await blogModel.find({ status: "publish" }).countDocuments();
+
 
         if (blogs.length === 0) {
             return Response.json(new ApiResponse(
                 true,
                 "No blog found",
                 {
-                    limit: "",
-                    nextId: "",
+                    totalPages: Math.ceil(total / limit),
+                    currentPage: page,
+                    totalPosts: total,
                     blogs: []
                 }
             ), {
@@ -54,8 +54,9 @@ export async function GET(request) {
             true,
             "success",
             {
-                limit,
-                nextId,
+                totalPages: Math.ceil(total / limit),
+                currentPage: page,
+                totalPosts: total,
                 blogs
             }
         ), {

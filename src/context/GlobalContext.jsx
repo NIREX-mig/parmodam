@@ -8,6 +8,7 @@ const Globalstate = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false);
   const [tableData, setTableData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const deleteDialogRef = useRef();
   const editDialogRef = useRef();
@@ -35,7 +36,9 @@ const Globalstate = ({ children }) => {
         deleteId,
         setDeleteId,
         tableData,
-        setTableData
+        setTableData,
+        currentPage,
+        setCurrentPage,
       }}
     >
       {children}

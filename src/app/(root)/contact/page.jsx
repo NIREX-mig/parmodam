@@ -43,7 +43,7 @@ export default function Contact() {
                 className="rounded-full"
               />
 
-              <h2 className="font-semibold text-xl text-black">Threads</h2>
+              <h2 className="font-semibold text-xl text-black dark:text-gray-300">Threads</h2>
             </Link>
 
             <Link

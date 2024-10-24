@@ -100,8 +100,8 @@ export default function Signin() {
               <Link href="/auth/forgot">
                 <span className="hover:underline cursor-pointer block mt-3">Forgot Password</span>
               </Link>
-              <Button type="submit" className="w-full disabled:bg-black/85 disabled:cursor-not-allowed" disabled={isSubmiting} >
-                {isSubmiting ? <Loader2 className="animate-spin" /> : "Sign In"}
+              <Button type="submit" className="w-full disabled:bg-black/45 disabled:cursor-not-allowed" disabled={isSubmiting} >
+                {isSubmiting ? <Loader2 className="animate-spin dark:file:text-white dark:text-white" /> : "Sign In"}
               </Button>
             </form>
           </Form>

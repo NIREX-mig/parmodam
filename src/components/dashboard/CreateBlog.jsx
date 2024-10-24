@@ -7,32 +7,30 @@ import { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import Image from "next/image";
 import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectGroup, SelectItem } from "@/components/ui/select"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectValue, SelectTrigger } from "@/components/ui/select"
 import { Textarea } from "../ui/textarea";
 import { Label } from "@/components/ui/label"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Loader2 } from "lucide-react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import { SelectTrigger, SelectValue } from "@radix-ui/react-select";
 
 import "react-markdown-editor-lite/lib/index.css"
 
-const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting, selectedPost }) => {
+const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
 
-  const [title, setTitle] = useState(selectedPost?.title || "");
-  const [slug, setSlug] = useState(selectedPost?.slug || "");
-  const [summary, setSummary] = useState(selectedPost?.summary || "");
-  const [category, setCategory] = useState(selectedPost?.category || "");
+  const [title, setTitle] = useState("");
+  const [slug, setSlug] = useState("");
+  const [summary, setSummary] = useState("");
+  const [category, setCategory] = useState("");
   const [thumbnail, setThumbnail] = useState();
-  const [blogContent, setBlogContent] = useState(selectedPost?.blogContent || "")
-  const [tagData, setTagData] = useState(selectedPost?.tags || []);
-  const [status, setStatus] = useState(selectedPost?.status || "");
-
+  const [blogContent, setBlogContent] = useState("")
+  const [tagData, setTagData] = useState([]);
+  const [status, setStatus] = useState("draft");
 
   const [wordCount, setWordCount] = useState(0);
-  const [filePath, setFilePath] = useState(selectedPost?.thumbnailUrl || null)
+  const [filePath, setFilePath] = useState()
 
-  const wordLimit = 20;
+  const wordLimit = 30;
 
   const mdParser = new MarkdownIt();
 
@@ -222,7 +220,7 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting, selectedPost }) => {
         disabled={isSubmiting}
         onClick={handleOnClick}
       >
-        {isSubmiting ? <Loader2 className="animate-spin" /> : `${buttonTitle}`}
+        {isSubmiting ? <Loader2 className="animate-spin dark:text-white dark:file:text-white" /> : `${buttonTitle}`}
       </Button>
     </section >
 

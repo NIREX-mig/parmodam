@@ -8,6 +8,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function AddBlog() {
+
   const { setMenuOpen } = useGlobalContext();
   const [isSubmiting, setIsSubmitting] = useState(false);
 
@@ -15,6 +16,7 @@ export default function AddBlog() {
 
 
   async function onSubmit(values) {
+
     const formData = new FormData();
     values.title && formData.append("title", values.title);
     values.slug && formData.append("slug", values.slug);
