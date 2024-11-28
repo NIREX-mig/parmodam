@@ -10,8 +10,8 @@ import img4 from "@/public/assets/category/4.jpg"
 const CategoryCards = () => {
     return (
         <div className="featured_category bg_image_1" data-aos="fade-up" data-aos-duration="700">
-            <div className="px-24">
-                <div className="flex gap-8 mx-auto">
+            <div className="px-16">
+                <div className="flex md:flex-row flex-col md:gap-4 gap-4 mx-auto">
                     <div className="w-full sm:w-1/2 lg:w-1/4">
                         <div className="featured_category_item" data-aos="fade-up" data-aos-duration="600">
                             <Image src={img1} alt="img" width={100} height={100} />

@@ -2,38 +2,34 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import logo from "@/public/assets/sm1.jpg"
-import { PencilIcon } from "@heroicons/react/outline";
+import { LuPencilLine } from "react-icons/lu";
 
 const VerticalCard = ({ blog }) => {
-  const router = useRouter();
-
-  const handleOnClick = () => {
-    router.push(`/blogs/${blog.slug}`);
-  };
   return (
     <div>
-      <div className="max-w-sm bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="max-w-sm bg-white rounded-lg shadow-md overflow-hidden mx-auto">
         {/* <!-- Image Section --> */}
         <div className="relative group">
-          <Image onClick={handleOnClick} src={logo} alt="Journey Image" height={100} width={300} className="w-[350px] h-[350px] object-cover transform transition-transform duration-300 group-hover:scale-110 hover:cursor-pointer" />
-          <div className="absolute top-4 left-4 bg-gladeGreen-500 text-white px-3 py-2 rounded-lg text-sm">
-            <span className="block font-semibold">22</span>
-            <span className="block text-xs">May</span>
-          </div>
+          <Link href={`/blogs/${blog?.slug}`} >
+            <Image src={blog?.thumbnailUrl || ""} alt="Thumbnail" height={100} width={300} className="w-[350px] h-[350px] object-cover transform transition-transform duration-300 group-hover:scale-110 hover:cursor-pointer" />
+            <div className="absolute top-4 left-4 bg-gladeGreen-500 text-white px-3 py-2 rounded-lg text-sm">
+              <span className="block font-semibold">22</span>
+              <span className="block text-xs">May</span>
+            </div>
+          </Link>
         </div>
         {/* <!-- Content Section --> */}
         <div className="p-4">
           <p className="text-gray-500 text-sm mb-2 font-bold flex gap-2 items-center">
-            <PencilIcon width={20} />
+            <LuPencilLine size={20} />
             By Patricia Doe
           </p>
-          <h3
-            onClick={handleOnClick}
-            className="text-lg font-semibold text-gray-800 hover:text-gladeGreen-600 hover:cursor-pointer">
-            A journey is best measured in friends, rather than miles
-          </h3>
+          <Link href={`/blogs/${blog?.slug}`}>
+            <h3
+              className="text-lg font-semibold text-gray-800 hover:text-gladeGreen-600 hover:cursor-pointer">
+              A journey is best measured in friends, rather than miles
+            </h3>
+          </Link>
         </div>
       </div>
     </div>

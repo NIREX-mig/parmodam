@@ -1,5 +1,6 @@
 "use client";
 
+import CategoriesSection from "@/components/root/CategoriesSection";
 import VerticalCard from "@/components/root/VerticalCard";
 import Spinner from "@/components/Spinner";
 import { useToast } from "@/hooks/use-toast";
@@ -50,7 +51,7 @@ export default function Blogs() {
   }, [])
 
   return (
-    <section className="w-full h-[calc(100vh-75px)] border bg-white text-black lg:px-12 px-3 lg:flex gap-6 py-5 overflow-auto dark:bg-dmode dark:text-gray-300">
+    <section className="w-full border bg-white text-black lg:px-12 px-3 lg:flex gap-6 py-5 overflow-auto dark:bg-dmode dark:text-gray-300">
       <section className=" lg:w-[25rem] lg:p-2 w-full">
         <div className="flex">
           <input
@@ -64,19 +65,7 @@ export default function Blogs() {
           />
         </div>
 
-        <div className="border-gray-100 dark:border-gray-500 border w-full mt-5">
-          <ul className="flex flex-wrap">
-            <li className="w-full h-12 px-5 py-3 flex items-center  text-primary-800 font-semibold list-none bg-gray-50 hover:bg-gray-100 cursor-pointer border-l-4 border-primary-500 dark:bg-dmode">
-              <span>Blog</span>
-            </li>
-            <li className="w-full h-12 px-5 py-3 flex items-center  text-black font-semibold list-none bg-gray-50 hover:bg-gray-100 cursor-pointer border-l-4 dark:bg-dmode dark:text-gray-600">
-              <span>Recent Post</span>
-            </li>
-            <li className="w-full h-12 px-5 py-3 flex items-center  text-black font-semibold list-none bg-gray-50 hover:bg-gray-100 cursor-pointer border-l-4 dark:bg-dmode dark:text-gray-600">
-              <span>Top Post</span>
-            </li>
-          </ul>
-        </div>
+        <CategoriesSection />
       </section>
       <section className="w-full p-2 overflow-y-auto">
         <h1 className="text-2xl font-bold mb-5">Featured Posts</h1>

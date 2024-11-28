@@ -4,15 +4,17 @@ import { fbHref, instaHref, linkedinHref } from '@/constant'
 import Link from 'next/link'
 import React from 'react'
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import img from "@/public/assets/gg.jpg"
+import Image from 'next/image';
 
 const Hello = () => {
     return (
-        <section className='flex '>
-            <div className="top-social-1 social_links">
-                <ul className="top-social">
-                    <li><Link href={fbHref}> <FaFacebook size={25} className='text-black ' /></Link></li>
-                    <li><Link href={instaHref}> <FaInstagram size={25} className='text-black ' /> </Link></li>
-                    <li><Link href={linkedinHref}> <FaLinkedin size={25} className='text-black ' /> </Link></li>
+        <section className='flex md:flex-row flex-col-reverse '>
+            <div className="p-10 md:mt-20 mt-6">
+                <ul className='flex md:flex-col flex-row gap-10 justify-center md:gap-10'>
+                    <li><Link href={fbHref}> <FaFacebook size={25} className='text-gray-400 hover:text-gladeGreen-400 ' /></Link></li>
+                    <li><Link href={instaHref}> <FaInstagram size={25} className='text-gray-400 hover:text-gladeGreen-400 ' /> </Link></li>
+                    <li><Link href={linkedinHref}> <FaLinkedin size={25} className='text-gray-400 hover:text-gladeGreen-400 ' /> </Link></li>
                 </ul>
             </div>
             <div className="theme_slider_1">
@@ -49,8 +51,8 @@ const Hello = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-[70%]'>
-                hello
+            <div className='w-[75%]'>
+                <Image src={img} alt='img' width={100} height={100} className='w-full justify-center' quality={100} />
             </div>
         </section>
     )

@@ -1,21 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import Insta from "@/public/assets/instagram.png";
-import Facebook from "@/public/assets/facebook.png";
-import Threads from "@/public/assets/threads.png";
-import Linkedin from "@/public/assets/linkedin.png";
 import Link from "next/link";
 import { instaHref, fbHref, threadHref, linkedinHref } from "@/constant/index";
 import { useEffect } from "react";
 import { useGlobalContext } from "@/hooks/useGlobalContext";
 
 export default function Contact() {
-  // const { setMobileNavIsOpen } = useGlobalContext();
+  const { setMobileNavIsOpen } = useGlobalContext();
 
-  // useEffect(() => {
-  // setMobileNavIsOpen(false);
-  // }, []);
+  useEffect(() => {
+    setMobileNavIsOpen(false);
+  }, []);
 
   return (
     <section>
@@ -26,13 +22,10 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="main-wrapper m_tp_0">
+      <div className="main-wrapper m_tp_0 px-5">
         <div className="container mx-auto">
           <div className="contact_info">
             <div className="infobox">
-              <div className="infobox_icon">
-                {/* <img className="primary_img" src="images/phonebook_white.png" alt="alt" /> */}
-              </div>
               <div className="infobox_content">
                 <p>Phone No</p>
                 <h6>+ 123 456 78 99</h6>
@@ -41,20 +34,14 @@ export default function Contact() {
             </div>
 
             <div className="infobox">
-              <div className="infobox_icon">
-                {/* <img className="primary_img" src="images/mailbox_white.png" alt="alt" /> */}
-              </div>
+              <div className="infobox_content">
                 <p>E-mail Address</p>
                 <h6>benzoblog@gmail.com</h6>
                 <h6>benzoeditor@gmail.com</h6>
               </div>
-              <div className="infobox_content">
             </div>
 
             <div className="infobox">
-              <div className="infobox_icon">
-                {/* <img className="primary_img" src="images/map_white.png" alt="alt" /> */}
-              </div>
               <div className="infobox_content">
                 <p>Office Address</p>
                 <h6>113 Salt Lake City, Utah<br />

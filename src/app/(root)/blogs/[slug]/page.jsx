@@ -11,6 +11,7 @@ import { useGlobalContext } from "@/hooks/useGlobalContext";
 import axios from "axios";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
+import TagCloud from "@/components/root/TagCloud";
 
 export default function Page({ params }) {
     const { setMobileNavIsOpen } = useGlobalContext();
@@ -64,53 +65,57 @@ export default function Page({ params }) {
     }, []);
 
     return (
-        <section className="lg:w-[85%] w-full mx-auto px-3 pt-10 dark:bg-dmode">
-            <Link href="/blogs" className="flex gap-1 items-center text-indigo-600 hover:text-indigo-700 font-semibold" >
+        <section className="lg:w-[95%] w-full mx-auto px-3 pt-10">
+            <Link href="/blogs" className="flex gap-1 items-center text-black hover:text-gladeGreen-700 font-semibold" >
                 <IoIosArrowRoundBack size={25} className="" />
                 <p className="text-sm">BACK TO BLOG HOME</p>
             </Link>
 
-            <section className="flex lg:flex-row flex-col">
-                <Markdown
-                    // eslint-disable-next-line react/no-children-prop
-                    children={blogPost?.blogContent}
-                    className=" prose lg:prose-xl lg:w-[70%] md:w-full mt-10 dark:text-gray-300 dark:prose-headings:text-white dark:prose-strong:text-white"
-                />
+            <section className="w-full grid md:grid-cols-3 grid-cols-1 ">
+                <div className="col-span-2">
+                    <Markdown
+                        // eslint-disable-next-line react/no-children-prop
+                        children={blogPost?.blogContent}
+                        className=" prose lg:prose-xl  w-full mt-20 text-ellipsis "
+                    />
+                    <div className=" lg:mb-10 w-full flex flex-col lg:flex-row ">
+                        <Share title={blogPost?.title} url={url} />
+                        <div className="lg:mt-8 mt-3 lg:ml-20 flex gap-2">
+                            {blogPost?.tags.map((tag, index) => {
+                                return <p key={index} className="inline-flex text-black text-md px-2 items-center justify-center ">
+                                    #{tag}
+                                </p>
+                            })}
 
-                <div className="lg:ml-10 mt-5 grid grid-cols-3 lg:block items-center">
-                    <div>
-                        <p className="text-xs">PUBLISHED</p>
-                        <p className="mt-2">{moment(blogPost?.createdAt).format('MMM DD, YYYY')}</p>
-                    </div>
-
-                    <Share title={blogPost?.title} url={url} />
-
-                    <div className="lg:mt-10">
-                        <h4 className="text-sm">TOPIC</h4>
-                        <p className="text-indigo-700 mt-1">{blogPost?.category}</p>
+                        </div>
                     </div>
                 </div>
-            </section>
-            <div className=" lg:mb-10 w-full flex lg:flex-col flex-row flex-wrap">
-                <Share title={blogPost?.title} url={url} />
-                <div className="mt-8 flex gap-4">
-                    {blogPost?.tags.map((tag, index) => {
-                        return <p key={index} className="dark:bg-gray-200 bg-gray-200 inline-flex text-black  text-lg px-5 py-2 rounded-full items-center justify-center ">
-                            {tag}
-                        </p>
+                <div className="lg:ml-10 mt-20 grid lg:grid-cols-3  lg:block items-center">
+                    <div className="bg-gladeGreen-100 p-6 text-black">
+                        <div className="flex items-center gap-3 capitalize my-3">
+                            <p className="font-bold">PUBLISHED: </p>
+                            <p >{moment(blogPost?.createdAt).format('MMM DD, YYYY')}</p>
+                        </div>
+
+                        <Share title={blogPost?.title} url={url} />
+
+                        <div className="lg:mt-10 flex items-center gap-3 capitalize my-3">
+                            <h4 className="font-bold">Category: </h4>
+                            <p className="text-indigo-700 mt-1">{blogPost?.category}</p>
+                        </div>
+                    </div>
+                    <TagCloud />
+                </div>
+
+                <section className="mt-5 grid lg:grid-cols-3 grid-cols-1 mx-auto  gap-x-8 gap-y-5 pb-5">
+                    {relatedBlog?.map((blog, i) => {
+                        return <div key={i} className="">
+                            <Image src={blog.thumbnailUrl || ""} alt="img" width={230} height={100} priority={true} />
+                            <h3 className="text-lg font-bold mt-3">{blog.title}</h3>
+                            <button className="mt-3 text-indigo-700 hover:text-indigo-900 font-semibold text-sm">READ MORE</button>
+                        </div>
                     })}
-
-                </div>
-            </div>
-
-            <section className="mt-5 grid lg:grid-cols-3 grid-cols-1 mx-auto  gap-x-8 gap-y-5 pb-5">
-                {relatedBlog?.map((blog, i) => {
-                    return <div key={i} className="">
-                        <Image src={blog.thumbnailUrl || ""} alt="img" width={230} height={100} priority={true} />
-                        <h3 className="text-lg font-bold mt-3">{blog.title}</h3>
-                        <button className="mt-3 text-indigo-700 hover:text-indigo-900 font-semibold text-sm">READ MORE</button>
-                    </div>
-                })}
+                </section>
             </section>
         </section >
     );

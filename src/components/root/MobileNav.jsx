@@ -15,8 +15,8 @@ const MobileNav = ({ handleLogOut, handleSignin }) => {
   const pathname = usePathname();
 
   return (
-    <section className={` ${mobileNavIsOpen ? "absolute translate-y-0 duration-300" : "absolute -translate-y-96 duration-300"} rounded-lg bg-indigo-50 w-full p-4 dark:bg-dmode dark:text-white`}>
-      <div className=" flex-col gap-10 w-full dark:bg-dmode dark:text-white">
+    <section className={` ${mobileNavIsOpen ? "absolute translate-y-0 duration-300" : "absolute -translate-y-96 duration-300"} bg-gladeGreen-50 w-full p-4 lg:hidden`}>
+      <div className=" flex-col gap-10 w-full ">
         <ul className="flex flex-col items-center mb-3 rtl:space-x-reverse font-semibold">
           <li>
             <Link href="/" className={`block py-2 px-3 rounded hover:text-gladeGreen-800 ${pathname === '/' ? "text-gladeGreen-500" : "text-gray-900"}`}>Home</Link>

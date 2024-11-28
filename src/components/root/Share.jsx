@@ -10,15 +10,15 @@ const Share = ({ url, title }) => {
   const encodedTitle = encodeURIComponent(title);
 
   return (
-    <div className="lg:mt-10 hidden lg:block">
-      <h4 className="text-sm">SHARE</h4>
-      <div className="mt-3 flex gap-3 items-center">
+    <div className="lg:mt-10 items-center inline-flex gap-4">
+      <h4 className="font-bold">SHARE: </h4>
+      <div className="flex gap-3 items-center">
         <Link
           href={`https://x.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaXTwitter size={25} className="text-indigo-700 hover:text-indigo-800" />
+          <FaXTwitter size={30} className="text-white p-2 rounded-full bg-gladeGreen-500" />
         </Link>
 
         <Link
@@ -26,7 +26,7 @@ const Share = ({ url, title }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaFacebookF size={25} className="text-indigo-700 hover:text-indigo-800" />
+          <FaFacebookF size={30} className="text-white p-2 rounded-full bg-gladeGreen-500" />
         </Link>
 
         <Link
@@ -34,7 +34,7 @@ const Share = ({ url, title }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaLinkedin size={25} className="text-indigo-700 hover:text-indigo-800" />
+          <FaLinkedin size={30} className="text-white p-2 rounded-full bg-gladeGreen-500" />
 
         </Link>
       </div>
