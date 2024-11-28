@@ -7,7 +7,6 @@ import { FaHome } from "react-icons/fa";
 import { FaBloggerB } from "react-icons/fa";
 import { MdOutlinePendingActions } from "react-icons/md";
 import { IoMdSettings, IoMdAddCircle } from "react-icons/io";
-import Logo from "@/public/assets/logo.webp"
 
 
 const DashboardNav = () => {
