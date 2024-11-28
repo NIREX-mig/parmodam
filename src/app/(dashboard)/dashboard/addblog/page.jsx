@@ -57,6 +57,7 @@ export default function AddBlog() {
 
   return (
     <ScrollArea className="w-full bg-white rounded-lg mt-2 h-[calc(100vh-100px)] p-5 dark:bg-dmode dark:text-gray-300">
+      <h1 className="text-xl font-bold text-gray-800">Create New Blog</h1>
       <CreateBlog
         buttonTitle="Add Blog"
         isSubmiting={isSubmiting}

@@ -31,7 +31,7 @@ export default function MainLayout({ children }) {
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
             <NextTopLoader
-              color="#3f2beb"
+              color="#59815b"
               initialPosition={0.08}
               crawlSpeed={200}
               height={3}
@@ -39,7 +39,7 @@ export default function MainLayout({ children }) {
               showSpinner={false}
               easing="ease"
               speed={100}
-              shadow="0 0 10px #3f2beb,0 0 5px #3f2beb"
+              shadow="0 0 10px #81a783,0 0 5px #4a6f4c"
               template='<div class="bar" role="bar"><div class="peg"></div></div>'
               zIndex={1600}
               showAtBottom={false}

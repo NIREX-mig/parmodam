@@ -19,37 +19,18 @@ const MobileNav = ({ handleLogOut, handleSignin }) => {
       <div className=" flex-col gap-10 w-full dark:bg-dmode dark:text-white">
         <ul className="flex flex-col items-center mb-3 rtl:space-x-reverse font-semibold">
           <li>
-            <Link href="/" className={`block py-2 px-3 rounded hover:text-indigo-800 ${pathname === '/' ? "text-indigo-800 dark:text-indigo-400" : "text-gray-900 dark:text-white"} dark:hover:text-indigo-200`}>Home</Link>
+            <Link href="/" className={`block py-2 px-3 rounded hover:text-gladeGreen-800 ${pathname === '/' ? "text-gladeGreen-500" : "text-gray-900"}`}>Home</Link>
           </li>
           <li>
-            <Link href="/blogs" className={`block py-2 px-3 rounded hover:text-indigo-800 ${pathname === '/blogs' ? "text-indigo-800 dark:text-indigo-400" : "text-gray-900  dark:text-white"} dark:hover:text-indigo-200`}>Blogs</Link>
+            <Link href="/blogs" className={`block py-2 px-3 rounded hover:text-gladeGreen-800 ${pathname === '/blogs' ? "text-gladeGreen-500" : "text-gray-900"}`}>Posts</Link>
           </li>
           <li>
-            <Link href="/contact" className={`block py-2 px-3 rounded hover:text-indigo-800 ${pathname === '/contact' ? "text-indigo-800 dark:text-indigo-400 " : 'text-gray-900 dark:text-white'} dark:hover:text-indigo-200`}>Contact</Link>
+            <Link href="/about" className={`block py-2 px-3 rounded hover:text-gladeGreen-800 ${pathname === '/about' ? "text-gladeGreen-500" : 'text-gray-900'}`}>About Author</Link>
           </li>
-
-          {data?.user.isAdmin &&
-            <li>
-              <Link href="/dashboard" className={`block py-2 px-3 text-gray-900 rounded hover:text-indigo-800 dark:hover:text-indigo-200 dark:text-white`}>Dashboard</Link>
-            </li>
-          }
+          <li>
+            <Link href="/contact" className={`block py-2 px-3 rounded hover:text-gladeGreen-800 ${pathname === '/contact' ? "text-gladeGreen-500" : 'text-gray-900'}`}>Contact Us</Link>
+          </li>
         </ul>
-        {
-          !data ?
-            <Button
-              onClick={handleSignin}
-              className="bg-indigo-700 rounded-md px-7 py-5 text-white hover:bg-indigo-800 active:bg-indigo-900 active:text-white w-full"
-            >
-              Sign in
-            </Button>
-            :
-            <Button
-              onClick={handleLogOut}
-              className="bg-indigo-700 rounded-md px-7 py-5 text-white hover:bg-indigo-800 active:bg-indigo-900 active:text-white w-full "
-            >
-              Log out
-            </Button>
-        }
       </div>
     </section>
   );

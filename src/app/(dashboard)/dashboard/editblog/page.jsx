@@ -192,6 +192,7 @@ export default function EditBlog() {
 
     return (
         <ScrollArea className="w-full bg-white rounded-lg mt-2 h-[calc(100vh-100px)] p-5 dark:bg-dmode dark:text-gray-300">
+            <h1 className="text-xl font-bold text-gray-800">Edit Blog</h1>
             <section className="p-1">
                 <div className="mt-5">
                     <Label htmlFor="title" className="text-lg">Title</Label>

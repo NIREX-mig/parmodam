@@ -114,7 +114,7 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           autoComplete="off"
-          placeholder="Enter title"
+          placeholder="Enter blog title"
           required
         />
       </div>
@@ -125,7 +125,7 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
           name="slug"
           onChange={handleOnSlugChange}
           autoComplete="off"
-          placeholder="Enter slug"
+          placeholder="Enter blog slug (e.g., blog-title)"
           required
         />
       </div>
@@ -136,7 +136,7 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
           value={summary}
           onChange={handleOnSummaryChange}
           autoComplete="off"
-          placeholder="Enter summary"
+          placeholder="Write a short summary for the blog..."
           required
         />
       </div>
@@ -147,15 +147,15 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           autoComplete="off"
-          placeholder="Enter category"
+          placeholder="Enter category for the blog..."
           required
         />
       </div>
       <div className="mt-5">
-        <Label htmlFor="thumbnail" className="text-lg">Thumbnail</Label>
+        <Label htmlFor="thumbnail" className="text-lg">Thumbnail Upload</Label>
         <Input id="Thumbnail" type="file" accept=".jpg, .jpeg, .png" onChange={handleFileChange} />
 
-        <p className="mt-5 text-xl"> Image Preview</p>
+        <p className="mt-5 text-xl"> Thumbnail Preview</p>
         <div className="flex items-center justify-center lg:w-[500px] w-auto mt-1 border-2 border-gray-300 border-dashed rounded-lg overflow-clip dark:bg-dmode">
           <AspectRatio ratio={16 / 9} className="dark:bg-dmode">
             {!filePath && <Label className="flex flex-col items-center justify-center w-full h-64 bg-gray-50 p-2 dark:text-gray-300 dark:bg-dmode" >PNG, JPG, JPEG (MAX. 500x300px)</Label>}
@@ -183,7 +183,7 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
         <Input
           onKeyUp={event => (event.key === 'Enter' ? addTagData(event) : null)}
           autoComplete="off"
-          placeholder="Enter tag"
+          placeholder="Add tags separated by pressing Enter"
           required
         />
       </div>

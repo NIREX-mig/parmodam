@@ -20,6 +20,7 @@ import {
 import { FaBloggerB, FaTag } from "react-icons/fa";
 import { MdDrafts, MdTopic } from "react-icons/md";
 import axios from "axios";
+import Stats from "@/components/dashboard/stats";
 
 
 export default function Dashboard() {
@@ -92,7 +93,8 @@ export default function Dashboard() {
 
     return (
         <ScrollArea className="w-full rounded-xl mt-2 bg-white text- p-5 h-[calc(100vh-100px)] dark:bg-dmode dark:text-gray-300">
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
+            <Stats />
+            {/* <div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
                 <Card className="flex justify-between items-center dark:">
                     <CardHeader className="grid h-12 w-12 m-4 place-items-center text-white bg-black/90 rounded-lg ">
                         <FaBloggerB size={30} />
@@ -133,7 +135,7 @@ export default function Dashboard() {
                     </CardContent>
                 </Card>
 
-            </div>
+            </div> */}
 
             {/* <div className="flex-row lg:flex gap-7">
                 <div className="w-full overflow-auto">

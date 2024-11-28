@@ -7,43 +7,19 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import profile from "@/public/profile.jpg"
+import { BellIcon, SearchIcon } from "@heroicons/react/outline";
+import { useRouter } from "next/navigation";
+
+
 
 const DashboardHeader = () => {
 
   const { menuOpen, setMenuOpen } = useGlobalContext();
   const pathname = usePathname();
 
-  const [pageName, setPageName] = useState("");
+  // Extract the page name from the pathname
+  const pageName = pathname === "/dashboard" ? "Dashboard" : pathname.split("/").slice(-1)[0];
 
-
-  useEffect(() => {
-    if (pathname === "/dashboard") {
-      setPageName("Blogs Dashboard")
-    }
-
-    if (pathname === "/dashboard/blogs") {
-      setPageName("All Published Blogs")
-    }
-
-    if (pathname === "/dashboard/addblog") {
-      setPageName("Add Blog")
-    }
-
-    if (pathname === "/dashboard/pending") {
-      setPageName("Draft Blogs")
-    }
-
-    if (pathname === "/dashboard/editblog") {
-      setPageName("Edit Blog")
-    }
-
-    if (pathname === "/dashboard/setting") {
-      setPageName("Setting")
-    }
-
-    // get logged in user image
-
-  }, [pathname]);
 
   return (
     <>
@@ -57,7 +33,24 @@ const DashboardHeader = () => {
           <h3 className="text-xl font-semibold ">ADMIN PANEL</h3>
         </div>
 
-        <div>
+        <div className="flex items-center space-x-6">
+          {/* Profile Dropdown */}
+          <div className="relative group">
+            <Image
+              src={profile}
+              alt="Profile"
+              width={50}
+              height={50}
+              className="border-gray-500 border rounded-full"
+            />
+            <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50">
+              <ul className="py-2 text-sm text-gray-700">
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Logout</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {/* <div>
           <Image
             src={profile}
             alt="Profile"
@@ -65,7 +58,7 @@ const DashboardHeader = () => {
             height={50}
             className="border-gray-500 border rounded-full"
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="w-full h-[4rem] sticky top-0 z-[0] bg-white rounded-xl p-4 border-gray-100 border shadow-md mb-4 lg:hidden flex justify-between items-center dark:bg-dmode dark:text-gray-300 dark:border-gray-600">

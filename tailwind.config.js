@@ -9,7 +9,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dmode: "#070F2B",
+        gladeGreen: {
+          '50': '#f5f8f5',
+          '100': '#e8f0e8',
+          '200': '#d1e1d2',
+          '300': '#adc8ae',
+          '400': '#81a783',
+          '500': '#59815b',
+          '600': '#4a6f4c',
+          '700': '#3d583e',
+          '800': '#334834',
+          '900': '#2b3c2d',
+          '950': '#141f16',
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
