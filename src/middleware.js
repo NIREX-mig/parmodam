@@ -29,7 +29,7 @@ export async function middleware(request) {
         )
     ) {
         console.log("isAdmin:", token);
-        return NextResponse.redirect(new URL('/dashboard', request.url));
+        return NextResponse.redirect(new URL('/not-found', request.url));
     }
 
     // If the user is not logged in and tries to access dashboard routes, redirect to /sign-in
