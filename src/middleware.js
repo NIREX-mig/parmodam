@@ -30,7 +30,7 @@ export async function middleware(request) {
         )
     ) {
         console.log("isAdmin:", token);
-        return NextResponse.redirect(new URL('/not-found', request.url), { status: 200 });
+        return NextResponse.redirect(new URL('/not-found', request.url), { status: 308 });
     }
 
     // If the user is not logged in and tries to access dashboard routes, redirect to /sign-in
