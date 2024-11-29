@@ -29,7 +29,7 @@ export async function middleware(request) {
             url.pathname.startsWith('/dashboard/setting')
         )
     ) {
-        console.log("isAdmin:", token?.isAdmin);
+        console.log("isAdmin:", token);
         return NextResponse.redirect(new URL('/not-found', request.url), { status: 302 });
     }
 
