@@ -2,7 +2,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import Globalstate from "@/context/GlobalContext";
-import { ThemeProvider } from "@/components/theme-provider"
 import AuthWraper from "@/context/AuthWraper";
 
 
@@ -44,14 +43,8 @@ export default function MainLayout({ children }) {
               zIndex={1600}
               showAtBottom={false}
             />
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
+
+            {children}
           </body>
         </AuthWraper>
       </html>

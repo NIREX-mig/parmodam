@@ -24,6 +24,7 @@ export async function middleware(request) {
         url.pathname.startsWith("/dashboard/setting") ||
         url.pathname.startsWith("/dashboard/setting/profile")
     )) {
+        console.log("isAdmin" + token?.isAdmin)
         return NextResponse.redirect(new URL("/not-found", request.url))
     }
 

@@ -153,7 +153,7 @@ export default function Forgot() {
 
 
   return (
-    <section className="bg-white w-full h-screen text-black flex justify-center items-center pattern dark:bg-dmode">
+    <section className="bg-white w-full h-screen text-black flex justify-center items-center pattern">
       {sendEmail && <ForgotSendEmail
         isSubmiting={isSubmiting}
         forgotSendEmailform={forgotSendEmailform}

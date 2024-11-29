@@ -23,7 +23,7 @@ const DashboardHeader = () => {
 
   return (
     <>
-      <div className="h-[5rem] w-full bg-white rounded-xl p-4 border-gray-100 border shadow-md lg:flex justify-between items-center hidden dark:bg-dmode dark:text-gray-300 dark:border-gray-600">
+      <div className="h-[5rem] w-full bg-white rounded-xl p-4 border-gray-100 border shadow-md lg:flex justify-between items-center hidden">
         <div>
           <h3 >{pathname}</h3>
           <h3 className="font-bold">{pageName}</h3>
@@ -61,7 +61,7 @@ const DashboardHeader = () => {
         </div> */}
       </div>
 
-      <div className="w-full h-[4rem] sticky top-0 z-[0] bg-white rounded-xl p-4 border-gray-100 border shadow-md mb-4 lg:hidden flex justify-between items-center dark:bg-dmode dark:text-gray-300 dark:border-gray-600">
+      <div className="w-full h-[4rem] sticky top-0 z-[0] bg-white rounded-xl p-4 border-gray-100 border shadow-md mb-4 lg:hidden flex justify-between items-center">
         <div>
           <h3 className="text-xs font-semibold ">ADMIN PANEL</h3>
           <h3 className="font-bold text-xs mt-2">{pageName}</h3>

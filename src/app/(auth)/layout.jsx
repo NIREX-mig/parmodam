@@ -21,7 +21,7 @@ export default function AuthLayout({ children }) {
     return (
         <main>
             <section
-                className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-black/90`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
                 <Toaster />
                 {children}

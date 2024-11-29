@@ -20,10 +20,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <div className="dark:bg-dmode">
+    <div>
       <Navbar />
       <main
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-dmode`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </main>

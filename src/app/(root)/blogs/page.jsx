@@ -51,7 +51,7 @@ export default function Blogs() {
   }, [])
 
   return (
-    <section className="w-full border bg-white text-black lg:px-12 px-3 lg:flex gap-6 py-5 overflow-auto dark:bg-dmode dark:text-gray-300">
+    <section className="w-full border bg-white text-black lg:px-12 px-3 lg:flex gap-6 py-5 overflow-auto">
       <section className=" lg:w-[25rem] lg:p-2 w-full">
         <div className="flex">
           <input
@@ -61,7 +61,7 @@ export default function Blogs() {
             onChange={onChange}
             placeholder="Search"
             autoComplete="off"
-            className="w-full h-10 px-2 indent-3 py-2.5 border border-gray-500 rounded-lg focus:outline-none dark:bg-dmode"
+            className="w-full h-10 px-2 indent-3 py-2.5 border border-gray-500 rounded-lg focus:outline-none"
           />
         </div>
 

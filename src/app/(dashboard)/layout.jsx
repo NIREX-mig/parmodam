@@ -24,7 +24,7 @@ export default function DashboardLayout({ children }) {
         <main className="flex bg-white text-black  ">
             <Toaster />
             <DashboardNav />
-            <section className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-200 w-full px-3 py-2 h-screen dark:bg-black/95`}>
+            <section className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-200 w-full px-3 py-2 h-screen`}>
                 <DashboardHeader />
                 {children}
             </section>

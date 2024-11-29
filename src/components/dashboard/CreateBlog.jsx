@@ -156,9 +156,9 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
         <Input id="Thumbnail" type="file" accept=".jpg, .jpeg, .png" onChange={handleFileChange} />
 
         <p className="mt-5 text-xl"> Thumbnail Preview</p>
-        <div className="flex items-center justify-center lg:w-[500px] w-auto mt-1 border-2 border-gray-300 border-dashed rounded-lg overflow-clip dark:bg-dmode">
-          <AspectRatio ratio={16 / 9} className="dark:bg-dmode">
-            {!filePath && <Label className="flex flex-col items-center justify-center w-full h-64 bg-gray-50 p-2 dark:text-gray-300 dark:bg-dmode" >PNG, JPG, JPEG (MAX. 500x300px)</Label>}
+        <div className="flex items-center justify-center lg:w-[500px] w-auto mt-1 border-2 border-gray-300 border-dashed rounded-lg overflow-clip ">
+          <AspectRatio ratio={16 / 9} className="">
+            {!filePath && <Label className="flex flex-col items-center justify-center w-full h-64 bg-gray-50 p-2 " >PNG, JPG, JPEG (MAX. 500x300px)</Label>}
             {filePath && <Image src={filePath} alt="thumbnail" width={100} height={100} className="w-auto h-auto" />}
           </AspectRatio>
         </div>
@@ -190,7 +190,7 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
 
       <Label
         htmlFor="tags"
-        className="block mt-2 text-md font-bold text-gray-900 dark:text-gray-300 text-lg "
+        className="block mt-2 text-md font-bold text-gray-900  text-lg "
       >
         Added Tags:
       </Label>
@@ -230,7 +230,7 @@ const CreateBlog = ({ buttonTitle, onSubmit, isSubmiting }) => {
         disabled={isSubmiting}
         onClick={handleOnClick}
       >
-        {isSubmiting ? <Loader2 className="animate-spin dark:text-white dark:file:text-white" /> : `${buttonTitle}`}
+        {isSubmiting ? <Loader2 className="animate-spin " /> : `${buttonTitle}`}
       </Button>
     </section >
 

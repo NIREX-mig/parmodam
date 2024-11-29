@@ -17,11 +17,11 @@ import Link from "next/link";
 
 const ForgotSendEmail = ({ forgotSendEmailform, onForgotSendEmailSubmit, isSubmiting }) => {
   return (
-    <div className="bg-white rounded-lg md:w-[35rem] w-auto mx-auto p-10 flex flex-col justify-center items-center border shadow-2xl shadow-black dark:bg-dmode dark:text-gray-300">
-      <h2 className="text-black text-center font-semibold md:text-3xl text-2xl dark:text-gray-300">
+    <div className="bg-white rounded-lg md:w-[35rem] w-auto mx-auto p-10 flex flex-col justify-center items-center border shadow-2xl shadow-black  ">
+      <h2 className="text-black text-center font-semibold md:text-3xl text-2xl ">
         Forgot Password?
       </h2>
-      <p className="mt-5 md:text-lg text-base text-gray-700 dark:text-gray-400">Enter your email to send forget email.</p>
+      <p className="mt-5 md:text-lg text-base text-gray-700">Enter your email to send forget email.</p>
       <div className="md:w-[24rem] w-full mt-10">
         <Form {...forgotSendEmailform}>
           <form onSubmit={forgotSendEmailform.handleSubmit(onForgotSendEmailSubmit)} className="space-y-8 w-full">

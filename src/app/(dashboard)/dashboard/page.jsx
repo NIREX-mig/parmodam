@@ -92,7 +92,7 @@ export default function Dashboard() {
 
 
     return (
-        <ScrollArea className="w-full rounded-xl mt-2 bg-white text- p-5 h-[calc(100vh-100px)] dark:bg-dmode dark:text-gray-300">
+        <ScrollArea className="w-full rounded-xl mt-2 bg-white text- p-5 h-[calc(100vh-100px)] ">
             <Stats />
             {/* <div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
                 <Card className="flex justify-between items-center dark:">

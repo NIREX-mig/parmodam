@@ -23,7 +23,7 @@ const DashboardNav = () => {
   return (
 
 
-    <div className="w-64 bg-white text-black flex flex-col p-4 shadow-lg h-screen dark:bg-dmode">
+    <div className="w-64 bg-white text-black flex flex-col p-4 shadow-lg h-screen">
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-wide text-blue-400">Parmodam</h1>
       </div>

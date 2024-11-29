@@ -184,14 +184,14 @@ export default function EditBlog() {
     }, [thumbnail]);
 
     if (isloading) {
-        return <div className="w-full bg-white rounded-xl mt-2 h-[calc(100vh-100px)] p-4 dark:bg-dmode dark:text-gray-300 flex justify-center items-center">
+        return <div className="w-full bg-white rounded-xl mt-2 h-[calc(100vh-100px)] p-4 flex justify-center items-center">
             <Spinner />
         </div>
 
     }
 
     return (
-        <ScrollArea className="w-full bg-white rounded-lg mt-2 h-[calc(100vh-100px)] p-5 dark:bg-dmode dark:text-gray-300">
+        <ScrollArea className="w-full bg-white rounded-lg mt-2 h-[calc(100vh-100px)] p-5">
             <h1 className="text-xl font-bold text-gray-800">Edit Blog</h1>
             <section className="p-1">
                 <div className="mt-5">
@@ -243,9 +243,9 @@ export default function EditBlog() {
                     <Input id="Thumbnail" type="file" accept=".jpg, .jpeg, .png" onChange={handleFileChange} />
 
                     <p className="mt-5 text-xl"> Image Preview</p>
-                    <div className="flex items-center justify-center lg:w-[500px] w-auto mt-1 border-2 border-gray-300 border-dashed rounded-lg overflow-clip dark:bg-dmode">
-                        <AspectRatio ratio={16 / 9} className="dark:bg-dmode">
-                            {!filePath && <Label className="flex flex-col items-center justify-center w-full h-64 bg-gray-50 p-2 dark:text-gray-300 dark:bg-dmode" >PNG, JPG, JPEG (MAX. 500x300px)</Label>}
+                    <div className="flex items-center justify-center lg:w-[500px] w-auto mt-1 border-2 border-gray-300 border-dashed rounded-lg overflow-clip ">
+                        <AspectRatio ratio={16 / 9} className="">
+                            {!filePath && <Label className="flex flex-col items-center justify-center w-full h-64 bg-gray-50 p-2" >PNG, JPG, JPEG (MAX. 500x300px)</Label>}
                             {filePath && <Image src={filePath || ""} alt="thumbnail" width={100} height={100} className="w-auto h-auto" />}
                         </AspectRatio>
                     </div>
@@ -277,7 +277,7 @@ export default function EditBlog() {
 
                 <Label
                     htmlFor="tags"
-                    className="block mt-2 text-md font-bold text-gray-900 dark:text-gray-300 text-lg "
+                    className="block mt-2 text-md font-bold text-gray-900  text-lg "
                 >
                     Added Tags:
                 </Label>
@@ -317,7 +317,7 @@ export default function EditBlog() {
                     disabled={isSubmiting}
                     onClick={handleOnClick}
                 >
-                    {isSubmiting ? <Loader2 className="animate-spin dark:text-white dark:file:text-white" /> : "Save Blog"}
+                    {isSubmiting ? <Loader2 className="animate-spin" /> : "Save Blog"}
                 </Button>
             </section >
             <ScrollBar orientation="vertical" />

@@ -58,15 +58,15 @@ export default function Signup() {
     }
 
     return (
-        <section className="bg-white w-full h-screen text-black flex justify-center items-center pattern dark:bg-dmode" >
-            <div className="flex lg:w-[70rem] w-auto bg-white shadow-2xl shadow-black mx-auto rounded-lg border dark:bg-dmode">
+        <section className="bg-white w-full h-screen text-black flex justify-center items-center pattern " >
+            <div className="flex lg:w-[70rem] w-auto bg-white shadow-2xl shadow-black mx-auto rounded-lg border ">
                 <div className="lg:flex lg:items-center hidden">
                     <Image src={animation} alt="animation" width={500} height={100} />
                 </div>
 
-                <div className="lg:w-[35rem] w-auto mx-auto p-10 flex flex-col justify-center items-center dark:bg-dmode dark:text-gray-300">
-                    <h2 className="text-black text-center font-semibold lg:text-3xl text-2xl dark:text-gray-300">Sign Up</h2>
-                    <p className="mt-5 lg:text-lg text-sm text-gray-700 dark:text-gray-400">Enter your email and password to register.</p>
+                <div className="lg:w-[35rem] w-auto mx-auto p-10 flex flex-col justify-center items-center ">
+                    <h2 className="text-black text-center font-semibold lg:text-3xl text-2xl ">Sign Up</h2>
+                    <p className="mt-5 lg:text-lg text-sm text-gray-700 ">Enter your email and password to register.</p>
                     <div className="md:w-[25rem] w-full mt-5">
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 w-full">
@@ -123,7 +123,7 @@ export default function Signup() {
                                     )}
                                 />
                                 <Button type="submit" className="w-full disabled:bg-black/45 disabled:cursor-not-allowed " disabled={isSubmiting} >
-                                    {isSubmiting ? <Loader2 className="animate-spin dark:text-white dark:file:text-white" /> : "Sign Up"}
+                                    {isSubmiting ? <Loader2 className="animate-spin " /> : "Sign Up"}
                                 </Button>
                             </form>
                         </Form>

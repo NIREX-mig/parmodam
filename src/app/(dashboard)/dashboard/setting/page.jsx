@@ -23,7 +23,7 @@ export default function Setting() {
   }
 
   return (
-    <section className=" w-full bg-white rounded-xl mt-2 h-[calc(100vh-100px)] p-4 dark:bg-dmode dark:text-gray-300">
+    <section className=" w-full bg-white rounded-xl mt-2 h-[calc(100vh-100px)] p-4">
       <section className="px-5 py-3">
         <h1 className="text-2xl font-bold">Settings</h1>
         <p className="mb-5">Manage your account settings and set e-mail preferences.</p>

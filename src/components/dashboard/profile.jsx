@@ -16,8 +16,8 @@ const Profile = ({ onSubmit }) => {
     })
     return (
         <ScrollArea className="py-5 p-3 rounded-lg w-full ">
-            <h3 className='text-2xl  dark:text-gray-300 text-black'>Profile</h3>
-            <p className='text-lg dark:text-gray-500 text-gray-700 mb-5'>This is how others will see you on the site.</p>
+            <h3 className='text-2xl   text-black'>Profile</h3>
+            <p className='text-lg text-gray-700 mb-5'>This is how others will see you on the site.</p>
             <hr className='mb-5' />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mx-1">

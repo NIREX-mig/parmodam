@@ -17,40 +17,33 @@ const Hello = () => {
                     <li><Link href={linkedinHref}> <FaLinkedin size={25} className='text-gray-400 hover:text-gladeGreen-400 ' /> </Link></li>
                 </ul>
             </div>
-            <div className="theme_slider_1">
-                <div className="slider_inner_content">
-                    <div className="slider_text">
-                        <div className="slider_posts">
-                            <div className="">
-                                <div>
-                                    <article className="blog_post">
-                                        <div className="post_img">
-                                            <div className="calendar">
-                                                <a href="#"><span className="date">30</span><br />May</a>
-                                            </div>
-                                        </div>
-                                        <div className="post_content">
-                                            <div className="post_header">
-                                                <h2 className="post_title" data-swiper="overlay-left">
-                                                    <a href="#">Explore the World, One Journey at a Time</a>
-                                                </h2>
-                                            </div>
-                                            <div className="post_intro">
-                                                <p>Discover breathtaking destinations, hidden gems, and unforgettable journeys. Let our travel stories inspire your next adventure, whether you seek tranquil escapes or thrilling experiences. Explore the world through our eyes and start planning your dream getaway today!</p>
-                                            </div>
-                                            <div className="post_footer">
-                                                <div className="read_more">
-                                                    <Link href="/blogs">See More Posts</Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
+
+
+            <div className="slider_text">
+                <article className="blog_post lg:px-[150px] px-6 lg:py-[120px] py-10 ">
+                    <div className="relative mb-8 bg-gladeGreen-500 px-4 py-1 inline-block text-white text-center">
+                        <div className="flex flex-col">
+                            <span className="font-bold text-lg font-sans">30</span><span className='text-sm mb-1'>May</span>
+                        </div>
+                    </div>
+                    <div className="">
+                        <div className="post_header">
+                            <h2 className="post_title" >
+                                <a href="#">Explore the World, One Journey at a Time</a>
+                            </h2>
+                        </div>
+                        <div className="post_intro">
+                            <p>Discover breathtaking destinations, hidden gems, and unforgettable journeys. Let our travel stories inspire your next adventure, whether you seek tranquil escapes or thrilling experiences. Explore the world through our eyes and start planning your dream getaway today!</p>
+                        </div>
+                        <div className="post_footer">
+                            <div className="read_more">
+                                <Link href="/blogs">See More Posts</Link>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
+
             <div className='w-[75%]'>
                 <Image src={img} alt='img' width={100} height={100} className='w-full justify-center' quality={100} />
             </div>
