@@ -15,7 +15,7 @@ export async function middleware(request) {
             url.pathname.startsWith('/auth/forgot')
         )
     ) {
-        return NextResponse.redirect(new URL('/', request.url), { status: 302 });
+        return NextResponse.redirect(new URL('/', request.url));
     }
 
     // If the user is not an admin but tries to access admin routes, redirect to /not-found
@@ -25,12 +25,11 @@ export async function middleware(request) {
             url.pathname.startsWith('/dashboard') ||
             url.pathname.startsWith('/dashboard/addblog') ||
             url.pathname.startsWith('/dashboard/blogs') ||
-            url.pathname.startsWith('/dashboard/pending') ||
-            url.pathname.startsWith('/dashboard/setting')
+            url.pathname.startsWith('/dashboard/pending')
         )
     ) {
         console.log("isAdmin:", token);
-        return NextResponse.redirect(new URL('/not-found', request.url), { status: 308 });
+        return NextResponse.redirect(new URL('/dashboard', request.url));
     }
 
     // If the user is not logged in and tries to access dashboard routes, redirect to /sign-in
@@ -40,11 +39,10 @@ export async function middleware(request) {
             url.pathname.startsWith('/dashboard') ||
             url.pathname.startsWith('/dashboard/addblog') ||
             url.pathname.startsWith('/dashboard/blogs') ||
-            url.pathname.startsWith('/dashboard/pending') ||
-            url.pathname.startsWith('/dashboard/setting')
+            url.pathname.startsWith('/dashboard/pending') 
         )
     ) {
-        return NextResponse.redirect(new URL('/sign-in', request.url), { status: 302 });
+        return NextResponse.redirect(new URL('/sign-in', request.url));
     }
 
     return NextResponse.next();
