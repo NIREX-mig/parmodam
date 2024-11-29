@@ -62,7 +62,6 @@ export default function Dashboard() {
                 const { data } = res;
 
                 if (data.success) {
-                    console.log(data.data)
                     setCardData(data.data);
                 }
             } catch (error) {
@@ -93,7 +92,7 @@ export default function Dashboard() {
 
     return (
         <ScrollArea className="w-full rounded-xl mt-2 bg-white text- p-5 h-[calc(100vh-100px)] ">
-            <Stats />
+            <Stats data={cardData} />
             {/* <div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
                 <Card className="flex justify-between items-center dark:">
                     <CardHeader className="grid h-12 w-12 m-4 place-items-center text-white bg-black/90 rounded-lg ">

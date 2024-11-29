@@ -23,7 +23,7 @@ export default function About() {
 					<div className="author_wrapper">
 						<div className="bg-gladeGreen-500 flex lg:flex-row flex-col w-[90%] mx-auto">
 							<div className="">
-								<div className="lg:-translate-x-28 lg:-translate-y-20">
+								<div className="lg:-translate-x-28 lg:-translate-y-20 -translate-y-20">
 									<Image src={img} alt="img" width={100} height={100} className="w-[150rem]" />
 								</div>
 							</div>

@@ -6,39 +6,50 @@ import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 import { FaBloggerB } from "react-icons/fa";
 import { MdOutlinePendingActions } from "react-icons/md";
-import { IoMdSettings, IoMdAddCircle } from "react-icons/io";
+import { IoMdAddCircle } from "react-icons/io";
+import logo from "@/public/assets/parmodam_transperent.png"
 
 
 const DashboardNav = () => {
 
+  const { menuOpen } = useGlobalContext();
   const menuItems = [
     { name: "Dashboard", path: "/dashboard", icon: FaHome },
     { name: "Add Blog", path: "/dashboard/addblog", icon: IoMdAddCircle },
     { name: "Blogs", path: "/dashboard/blogs", icon: FaBloggerB },
     { name: "Pending Blogs", path: "/dashboard/pending", icon: MdOutlinePendingActions },
-    { name: "Settings", path: "/dashboard/setting", icon: IoMdSettings },
+
   ];
 
 
   return (
 
 
-    <div className="w-64 bg-white text-black flex flex-col p-4 shadow-lg h-screen">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-wide text-blue-400">Parmodam</h1>
+    // <div className="w-64 bg-white text-black lg:flex flex-col p-4 shadow-lg">
+    <div className={`z-[100] fixed top-0 left-0 h-screen bg-white text-black shadow-lg transform ${menuOpen ? "translate-x-0" : "-translate-x-full"
+      } transition-transform duration-300 lg:translate-x-0 lg:static lg:flex lg:flex-col lg:w-64 p-4`}>
+      <div className="mb-3">
+      <Link href="/blogs">
+        <Image src={logo} alt="logo" width={100} height={100} className="w-[10rem] cursor-pointer" priority />
+      </Link>
       </div>
       <div className={`flex flex-col`}>
         <ul className="space-y-2 mt-3">
           {menuItems.map((item, index) => (
-            <li
+            <Link
+              href={item.path}
               key={index}
-              className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-700 text-black cursor-pointer"
+              className="flex items-center space-x-3 p-2 rounded-md group text-black cursor-pointer hover:bg-gray-200"
             >
-              <item.icon className="h-6 w-6 text-gray-400" />
-              <Link href={item.path} className="text-gray-200 font-medium">
-                {item.name}
-              </Link>
-            </li>
+              <li
+                className="flex items-center space-x-3 p-2 rounded-md group text-black cursor-pointer "
+              >
+                <item.icon className="h-6 w-6 text-black group-hover:text-gladeGreen-500" />
+                <p className="text-black font-medium group-hover:text-gladeGreen-500">
+                  {item.name}
+                </p>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
