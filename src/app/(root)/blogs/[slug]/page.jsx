@@ -10,8 +10,11 @@ import { useEffect, useState } from "react";
 import { useGlobalContext } from "@/hooks/useGlobalContext";
 import axios from "axios";
 import { useToast } from "@/hooks/use-toast";
-import { Label } from "@/components/ui/label";
 import TagCloud from "@/components/root/TagCloud";
+import CommentSection from "@/components/root/Comments";
+import MakeComment from "@/components/root/MakeComment";
+import SimilarPosts from "@/components/root/SimilarPost";
+import BlogDetailSkeleton from "@/components/BlogDetailSkeleton";
 
 export default function Page({ params }) {
     const { setMobileNavIsOpen } = useGlobalContext();
@@ -32,6 +35,7 @@ export default function Page({ params }) {
                 const { data } = res;
 
                 if (data.success) {
+                    setLoading(false);
                     setBlogPost(data.data)
                 }
             } catch (error) {
@@ -64,19 +68,25 @@ export default function Page({ params }) {
         fetchRelatedBlog();
     }, []);
 
+    if (loading) {
+        return <BlogDetailSkeleton />
+    }
+
     return (
         <section className="lg:w-[95%] w-full mx-auto px-3 pt-10">
-            <Link href="/blogs" className="flex gap-1 items-center text-black hover:text-gladeGreen-700 font-semibold" >
-                <IoIosArrowRoundBack size={25} className="" />
-                <p className="text-sm">BACK TO BLOG HOME</p>
+            <Link href="/blogs" className="gap-1 items-center text-black hover:text-gladeGreen-700 font-semibold mb-10 inline-flex" >
+                <IoIosArrowRoundBack size={25} />
+                <p className="text-sm uppercase inline">go back</p>
             </Link>
 
-            <section className="w-full grid md:grid-cols-3 grid-cols-1 ">
-                <div className="col-span-2">
+            <Image src={blogPost?.thumbnailUrl} alt="thumbnails" width={100} height={100} className="w-full lg:w-[90%] h-[25rem] mx-auto object-full" unoptimized />
+
+            <section className="lg:w-[80%] mx-auto">
+                <div className="">
                     <Markdown
                         // eslint-disable-next-line react/no-children-prop
                         children={blogPost?.blogContent}
-                        className=" prose lg:prose-xl  w-full mt-20 text-ellipsis "
+                        className="lg:prose-xl prose-figure:w-full  w-full mx-auto mt-20 "
                     />
                     <div className=" lg:mb-10 w-full flex flex-col lg:flex-row ">
                         <Share title={blogPost?.title} url={url} />
@@ -104,10 +114,10 @@ export default function Page({ params }) {
                             <p className="text-indigo-700 mt-1">{blogPost?.category}</p>
                         </div>
                     </div>
-                    <TagCloud />
+                    <TagCloud tags={blogPost?.tags} />
                 </div>
 
-                <section className="mt-5 grid lg:grid-cols-3 grid-cols-1 mx-auto  gap-x-8 gap-y-5 pb-5">
+                {/* <section className="mt-5 grid lg:grid-cols-3 grid-cols-1 mx-auto  gap-x-8 gap-y-5 pb-5">
                     {relatedBlog?.map((blog, i) => {
                         return <div key={i} className="">
                             <Image src={blog.thumbnailUrl || ""} alt="img" width={230} height={100} priority={true} />
@@ -115,8 +125,11 @@ export default function Page({ params }) {
                             <button className="mt-3 text-indigo-700 hover:text-indigo-900 font-semibold text-sm">READ MORE</button>
                         </div>
                     })}
-                </section>
+                </section> */}
             </section>
+            <SimilarPosts />
+            <CommentSection />
+            <MakeComment />
         </section >
     );
 };

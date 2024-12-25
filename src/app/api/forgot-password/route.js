@@ -10,7 +10,7 @@ export async function POST(request) {
     try {
 
         const { newpassword, token } = await request.json();
-
+        
         if (!token) {
             return Response.json(new ApiResponse(
                 false,

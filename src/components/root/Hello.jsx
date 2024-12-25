@@ -44,8 +44,8 @@ const Hello = () => {
                 </article>
             </div>
 
-            <div className='w-[75%]'>
-                <Image src={img} alt='img' width={100} height={100} className='w-full justify-center' quality={100} />
+            <div className='lg:w-[75%] w-full '>
+                <Image src={img} alt='img' width={100} height={100} className='w-full justify-center' priority unoptimized />
             </div>
         </section>
     )

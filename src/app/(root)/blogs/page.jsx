@@ -84,6 +84,7 @@ export default function Blogs() {
           />
         </div> */}
       </section>
+      
     </section>
   );
 }

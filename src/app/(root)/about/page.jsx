@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import img from "@/public/assets/2.png"
+import img from "@/public/assets/author.jpg"
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 import Link from "next/link";
@@ -24,17 +24,24 @@ export default function About() {
 						<div className="bg-gladeGreen-500 flex lg:flex-row flex-col w-[90%] mx-auto">
 							<div className="">
 								<div className="lg:-translate-x-28 lg:-translate-y-20 -translate-y-20">
-									<Image src={img} alt="img" width={100} height={100} className="w-[150rem]" />
+									<Image src={img} alt="img" width={100} height={100} className="w-[150rem]" priority unoptimized={true}/>
 								</div>
 							</div>
 							<div className="md:pr-16 md:pt-28 pt-10">
 								<div className="author_info text-white lg:text-justify">
-									<h3 className="text-3xl font-bold mb-10 md:text-start text-center">Hi, I am Patricia Doe</h3>
+									<h3 className="text-3xl font-bold mb-10 md:text-start text-center">Namaskaram, I am Pramod Kumar Pandit</h3>
 									<p className="mb-10 md:text-start text-center">
-										Smilique sunt in culpiqui officia deserunt mollitia animiide labor um et dolor um fuga. Et harumqu id em rerum facilis est et expedita distinctio. Nam libero tempore cum soluta nobis est eligendioptio cumque nihil impedit quo minus quod maxime placeat facere possimu.
+									An Isha Yoga meditator, and a seeker on a journey of self-discovery. Through the transformative power of Shambhavi Mahamudra Kriya, taught by Sadhguru, I have experienced the profound reality of oneness, where the distinction between &apos;I&apos; and &apos;not I&apos; dissolves.
+
 									</p>
 									<p className="md:text-start text-center">
-										Lorem ipsum dolor sit amet, consectetur. Ut enim ad mini ma veniam, quis nostrum exercitationem mosequatu aut em vel eum iure veniam quis notias excepturi.
+									As I witness the suffering around me, I realize it is often a result of our own making. This understanding drives my desire to share the transformative power of yoga and meditation with others. My dream is to empower people to break free from compulsiveness and embrace conscious living.
+									</p>
+									<br/>
+									<p className="md:text-start text-center">
+									Through my journey of spiritual exploration and travel, I aim to contribute to my Guru&apos;s vision of a harmonious, compassionate planet, where people live in consensus.
+
+
 									</p>
 									<div className="author_bottom">
 										<div className="social mt-5 pb-5">

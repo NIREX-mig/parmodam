@@ -30,7 +30,7 @@ const Navbar = () => {
     <section
       className={`border-b border-black/40 bg-white  sticky top-0 z-[100]`}
     >
-      <div className="lg:px-20 px-5 flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="lg:px-20 px-5 flex flex-wrap items-center justify-between mx-auto py-4">
         <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -39,8 +39,8 @@ const Navbar = () => {
             src={Logo || ""}
             width={100}
             height={100}
-            className=""
             alt="Logo"
+            unoptimized={true}
             className="lg:w-[10rem] w-[8rem]"
           />
         </Link>

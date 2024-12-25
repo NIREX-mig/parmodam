@@ -14,7 +14,7 @@ const CategoryCards = () => {
                 <div className="flex md:flex-row flex-col md:gap-4 gap-4 mx-auto">
                     <div className="w-full sm:w-1/2 lg:w-1/4">
                         <div className="featured_category_item" data-aos="fade-up" data-aos-duration="600">
-                            <Image src={img1} alt="img" width={100} height={100} />
+                            <Image src={img1} alt="img" width={100} height={100} unoptimized/>
                             <div className="featured_category_info">
                                 <h6 className="featured_category_heading"><a href="#">Travel & Advanture</a></h6>
                                 <p className="featured_category_number"><span>06</span> Posts</p>
@@ -23,7 +23,7 @@ const CategoryCards = () => {
                     </div>
                     <div className="w-full sm:w-1/2 lg:w-1/4">
                         <div className="featured_category_item" data-aos="fade-up" data-aos-duration="800">
-                            <Image src={img2} alt="img" width={100} height={100} />
+                            <Image src={img2} alt="img" width={100} height={100} unoptimized />
                             <div className="featured_category_info">
                                 <h6 className="featured_category_heading"><a href="#">Road Trip</a></h6>
                                 <p className="featured_category_number"><span>12</span> Posts</p>
@@ -32,7 +32,7 @@ const CategoryCards = () => {
                     </div>
                     <div className="w-full sm:w-1/2 lg:w-1/4">
                         <div className="featured_category_item" data-aos="fade-up" data-aos-duration="1000">
-                            <Image src={img3} alt="img" width={100} height={100} />
+                            <Image src={img3} alt="img" width={100} height={100} unoptimized />
                             <div className="featured_category_info">
                                 <h6 className="featured_category_heading"><a href="#">Camping Trip</a></h6>
                                 <p className="featured_category_number"><span>09</span> Posts</p>
@@ -41,7 +41,7 @@ const CategoryCards = () => {
                     </div>
                     <div className="w-full sm:w-1/2 lg:w-1/4">
                         <div className="featured_category_item" data-aos="fade-up" data-aos-duration="1200">
-                            <Image src={img4} alt="img" width={100} height={100} />
+                            <Image src={img4} alt="img" width={100} height={100} unoptimized/>
                             <div className="featured_category_info">
                                 <h6 className="featured_category_heading"><a href="#">Travel Photography</a></h6>
                                 <p className="featured_category_number"><span>16</span> Posts</p>
